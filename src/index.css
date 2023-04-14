@@ -9,7 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: dimgrey;
+  background-color: #1b1e2d;
+  color: whitesmoke;
 }
 
 code {
@@ -23,6 +24,12 @@ code {
 
 .markdown-preview code {
   display: inline-block;
-  background-color: white;
-  white-space: pre-wrap;
+  background-color: #2d3249;
+  color: rgb(255, 221, 0);
+  padding: 5px;
+}
+
+.markdown-preview a {
+  color: deepskyblue;
+  text-decoration: underline;
 }

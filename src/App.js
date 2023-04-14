@@ -2,15 +2,17 @@ import './App.css';
 import ReactMarkdown from 'react-markdown';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import remarkGfm from 'remark-gfm';
+
 
 function MarkdownEditor({ markdownText, handleChange }) {
 	return (
-		<div className="flex mx-auto max-w-xl h-32 justify-center">
+		<div className="text-black flex mx-auto max-w-xl h-32 justify-center">
 			<textarea 
 				value={markdownText}
 				onChange={handleChange}
 				placeholder="Enter markdown text here..."
-				className="w-full rounded-md resize-none">
+				className="w-full rounded-md resize-y  p-3">
 			</textarea>
 		</div>
 	);
@@ -23,7 +25,7 @@ MarkdownEditor.propTypes = {
 function MarkdownPreview({ textToRender }) {
 	return (
 		<div className="markdown-preview max-w-xl justify-center mx-auto">
-			<ReactMarkdown>{textToRender}</ReactMarkdown>
+			<ReactMarkdown remarkPlugins={[remarkGfm]} >{textToRender}</ReactMarkdown>
 		</div>
 	);
 }
