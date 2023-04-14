@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import ReactMarkdown from 'react-markdown';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function MarkdownEditor({ markdownText, handleChange }) {
+	return (
+		<div className="flex mx-auto max-w-xl h-32 justify-center">
+			<textarea 
+				value={markdownText}
+				onChange={handleChange}
+				placeholder="Enter markdown text here..."
+				className="w-full rounded-md resize-none">
+			</textarea>
+		</div>
+	);
+}
+MarkdownEditor.propTypes = {
+	markdownText: PropTypes.string,
+	handleChange: PropTypes.func.isRequired
+};
+
+function MarkdownPreview({ textToRender }) {
+	return (
+		<div className="markdown-preview max-w-xl justify-center mx-auto">
+			<ReactMarkdown>{textToRender}</ReactMarkdown>
+		</div>
+	);
 }
 
-export default App;
+MarkdownPreview.propTypes = {
+	textToRender: PropTypes.string
+};
+
+export default function App () {
+	// Creates `markdownText` state to store markdown text to be previewed.
+	const [markdownText, setMarkdownText] = useState('');
+
+	function handleChange(event) {
+		setMarkdownText(event.currentTarget.value);
+	}
+
+	return (
+		<div>
+			<MarkdownEditor markdownText={markdownText} handleChange={handleChange}/>
+			<MarkdownPreview textToRender={markdownText} />
+		</div>
+	);
+}
