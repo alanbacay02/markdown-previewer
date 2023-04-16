@@ -10,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #1b1e2d;
+  /* background-color: #020617; */
   color: whitesmoke;
 }
 
@@ -26,7 +27,6 @@ code {
   display: inline-block;
   background-color: #2d3249;
   color: rgb(255, 221, 0);
-  padding: 5px;
 }
 
 .markdown-preview a {
@@ -46,14 +46,15 @@ code {
 
 /* styles for smaller screens */
 @media screen and (max-width: 768px) {
-  code {
+  .markdown-preview code {
     font-size: 14px;
   }
 }
 
 /* styles for even smaller screens */
 @media screen and (max-width: 480px) {
-  code {
-    font-size: 12px;
+  .markdown-preview code {
+    padding: 4px 2px;
+    font-size: 10.5px;
   }
 }

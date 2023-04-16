@@ -7,13 +7,17 @@ import PREVIEW_TEXT from './previewText.js';
 
 function MarkdownEditor({ markdownText, handleChange }) {
 	return (
-		<div className="text-black flex mx-auto max-w-xl h-32 justify-center">
+		<div className="text-black mt-8 mb-4 max-w-xl mx-auto">
+			<div id="toolbar" className="flex flex-row justify-between mx-auto py-1 px-2 bg-slate-500">
+				<p>Editor</p>
+				<button>Button</button>
+			</div>
 			<textarea
 				id="editor"
 				value={markdownText}
 				onChange={handleChange}
 				placeholder="Enter markdown text here..."
-				className="w-full rounded-md resize-y p-3">
+				className="w-full h-32 resize-y p-3">
 			</textarea>
 		</div>
 	);
@@ -25,8 +29,16 @@ MarkdownEditor.propTypes = {
 
 function MarkdownPreview({ textToRender }) {
 	return (
-		<div id="preview" className="markdown-preview max-w-xl justify-center mx-auto">
-			<ReactMarkdown remarkPlugins={[remarkGfm]} >{textToRender}</ReactMarkdown>
+		<div id="preview" className="max-w-3xl mx-auto mt-8 bg-[#020617]">
+			<div id="toolbar" className="flex flex-row justify-between mx-auto px-2 bg-slate-500">
+				<p>Editor</p>
+				<button>Button</button>
+			</div>
+			<ReactMarkdown 
+				remarkPlugins={[remarkGfm]} 
+				className="markdown-preview justify-center px-3">
+				{textToRender}
+			</ReactMarkdown>
 		</div>
 	);
 }
@@ -44,7 +56,7 @@ export default function App () {
 	}
 
 	return (
-		<div>
+		<div className="px-1">
 			<MarkdownEditor markdownText={markdownText} handleChange={handleChange}/>
 			<MarkdownPreview textToRender={markdownText} />
 		</div>
