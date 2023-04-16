@@ -33,3 +33,27 @@ code {
   color: deepskyblue;
   text-decoration: underline;
 }
+
+.markdown-preview table, .markdown-preview tr, .markdown-preview td, .markdown-preview th {
+  border: 2px solid rgb(130, 129, 129);
+  padding: 4px;
+}
+
+.markdown-preview table {
+  border-collapse: collapse;
+  padding: 0;
+}
+
+/* styles for smaller screens */
+@media screen and (max-width: 768px) {
+  code {
+    font-size: 14px;
+  }
+}
+
+/* styles for even smaller screens */
+@media screen and (max-width: 480px) {
+  code {
+    font-size: 12px;
+  }
+}
