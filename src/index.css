@@ -9,8 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #424242; */
-  background-color: #393433;
+  background-color: #091f3e;
+  /* color: #123d79; */
 }
 
 code {
@@ -24,9 +24,9 @@ code {
 
 .markdown-preview code {
   display: inline-block;
-  background-color: #3f3f3f;
+  background-color: #091f3e;
   color: rgb(255, 221, 0);
-  padding-left: 4px;
+  padding: 2px 4px;
 }
 
 .markdown-preview a {
@@ -35,8 +35,9 @@ code {
 }
 
 .markdown-preview table, .markdown-preview tr, .markdown-preview td, .markdown-preview th {
-  border: 2px solid rgb(130, 129, 129);
-  padding: 4px;
+  border: 2px solid rgb(172, 171, 171);
+  /* border: 2px solid #A5D7E8; */
+  padding: 7px;
 }
 
 .markdown-preview table {
@@ -52,9 +53,9 @@ code {
 }
 
 /* styles for even smaller screens */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 375px) {
   .markdown-preview code {
     padding: 4px 2px;
-    font-size: 10.5px;
+    font-size: 10.2px;
   }
 }

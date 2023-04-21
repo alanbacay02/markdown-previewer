@@ -8,10 +8,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKeyboard, faEye } from '@fortawesome/free-regular-svg-icons';
 import { faMaximize } from '@fortawesome/free-solid-svg-icons';
 
+const COMPONENT_STYLE = {
+	backgroundColor: '#0c2d5c',
+	color: 'white'
+};
+const TOOLBAR_STYLE = {
+	backgroundColor: '#123d79',
+	color: 'white'
+};
+
 function MarkdownEditor({ markdownText, handleChange }) {
 	return (
-		<div className="text-black mt-8 mb-4 max-w-xl mx-auto">
-			<div id="toolbar" className="flex flex-row justify-between mx-auto py-1 px-2 bg-[#2d2d2d] text-white">
+		<div className="mt-8 mb-4 max-w-xl mx-auto">
+			<div id="toolbar" style={TOOLBAR_STYLE} className="flex flex-row justify-between mx-auto py-1 px-2 rounded-t-lg">
 				<FontAwesomeIcon icon={faKeyboard} className="my-auto"></FontAwesomeIcon>
 				<button><FontAwesomeIcon icon={faMaximize}></FontAwesomeIcon></button>
 			</div>
@@ -20,7 +29,8 @@ function MarkdownEditor({ markdownText, handleChange }) {
 				value={markdownText}
 				onChange={handleChange}
 				placeholder="Enter markdown text here..."
-				className="w-full h-40 resize-y p-3 bg-[#2a2727] text-[#f5f5f5]">
+				style={COMPONENT_STYLE}
+				className="w-full h-40 resize-y p-3 rounded-b-lg">
 			</textarea>
 		</div>
 	);
@@ -32,16 +42,18 @@ MarkdownEditor.propTypes = {
 
 function MarkdownPreview({ textToRender }) {
 	return (
-		<div id="preview" className="max-w-3xl mx-auto mt-8 bg-[#2a2727]">
-			<div id="toolbar" className="flex flex-row justify-between mx-auto py-1 px-2 bg-[#2d2d2d] text-white">
+		<div id="preview" className="max-w-3xl mx-auto mt-8">
+			<div id="toolbar" style={TOOLBAR_STYLE} className="flex flex-row justify-between mx-auto py-1 px-2 rounded-t-lg">
 				<FontAwesomeIcon icon={faEye} className="my-auto"></FontAwesomeIcon>
 				<button><FontAwesomeIcon icon={faMaximize}></FontAwesomeIcon></button>
 			</div>
-			<ReactMarkdown 
-				remarkPlugins={[remarkGfm]} 
-				className="markdown-preview justify-center px-3 text-[#f5f5f5]">
-				{textToRender}
-			</ReactMarkdown>
+			<div style={COMPONENT_STYLE} className="pt-[1px] rounded-b-lg">
+				<ReactMarkdown 
+					remarkPlugins={[remarkGfm]} 
+					className="markdown-preview justify-center px-3">
+					{textToRender}
+				</ReactMarkdown>
+			</div>
 		</div>
 	);
 }
