@@ -72,7 +72,7 @@ function MarkdownPreview({ textToRender, handleClick, maxComponent }) {
 					<button onClick={() => handleClick(null)}><FontAwesomeIcon icon={faMinimize}></FontAwesomeIcon></button>
 				}
 			</div>
-			<div id="preview" className="text-sm md:text-base md:leading-7 pt-[1px] rounded-b-lg justify-center px-3" style={!maxComponent ? COMPONENT_STYLE : maxComponent == 'MarkdownPreview' ? MAX_COMPONENT_STYLE : {display: 'none'}}>
+			<div id="preview" className="text-sm md:text-base md:leading-7 pt-[1px] rounded-b-lg justify-center p-3" style={!maxComponent ? COMPONENT_STYLE : maxComponent == 'MarkdownPreview' ? MAX_COMPONENT_STYLE : {display: 'none'}}>
 				{/* Our `textToRender` from `MarkdownEditor` is parsed into `markdown-react`. */}
 				<Marked id="preview" className="py-4">
 					{textToRender}
